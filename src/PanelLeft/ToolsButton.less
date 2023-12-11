@@ -1,42 +1,61 @@
-.tools-button {
-  display: block;
+@image-path: ~''; // 定义一个空字符串的变量
+
+.tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 96%;
-  height: 65px;
-  border-radius: 10px; // Rounded edges
+  aspect-ratio: 1 / 0.34;
+  border-radius: 10px; // 圆角
   position: relative;
-  cursor: pointer;
+
   background-color: #f2f2f2;
   border: none;
   outline: none;
-  
-  &:before { // Image inside the button
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 24px; // Adjust as needed
-    height: 24px; // Adjust as needed
-    // background: url('@{image-path}/image.png') no-repeat center center;
-    background-size: cover;
-  }
-  .button-image{
-    width: 100%;
-    height: 100%;
-  }
-  
-  .button-text { // Text overlay on the image's bottom half
+  overflow: hidden;
+
+  .tools-button {
     position: absolute;
     left: 0;
-    bottom: 10px; // Adjust as needed
+    top: 0;
     width: 100%;
-    text-align: center;
-    color: #333;
-    font-size: 14px;
-    background-color: aquamarine;
+    height: 100%;
+    cursor: pointer;
+
+    &.before {
+      background-color: transparent;
+      box-shadow: inset 0 0 50px rgba(40, 40, 40, 0.75)
+    }
+
+    &.active {
+      background-color: transparent;
+      box-shadow: inset 0 0 50px rgba(127, 255, 212, 0.75);
+    }
   }
 
-  &.active { // State for clicked button
-    background-color: #ff3d3d; // Different background for active state
+  .button-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .button-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 33%;
+    text-align: center;
+    font-weight: bold;
+    /* 将字体加粗 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+    background-color: rgba(127, 255, 212, 0.25);
+    backdrop-filter: blur(5px);
+    /* 添加模糊效果，可以根据需要调整模糊程度 */
   }
 }
