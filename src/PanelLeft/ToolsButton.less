@@ -1,0 +1,36 @@
+.tools-button {
+  display: block;
+  width: 96%;
+  height: 65px;
+  border-radius: 10px; // Rounded edges
+  position: relative;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  border: none;
+  outline: none;
+  
+  &:before { // Image inside the button
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px; // Adjust as needed
+    height: 24px; // Adjust as needed
+    // background: url('@{image-path}/image.png') no-repeat center center;
+    background-size: cover;
+  }
+  
+  .button-text { // Text overlay on the image's bottom half
+    position: absolute;
+    bottom: 10px; // Adjust as needed
+    width: 100%;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+  }
+
+  &.active { // State for clicked button
+    background-color: #e6e6e6; // Different background for active state
+  }
+}
